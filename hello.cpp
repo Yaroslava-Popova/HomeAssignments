@@ -12,5 +12,5 @@ extern string hi;
 
 void hello() {
     hi = "Hello, world!";
-    cout <<hi;
+    cout << hi;
 }
