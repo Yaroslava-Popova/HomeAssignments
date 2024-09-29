@@ -2,15 +2,12 @@
     st132757@student.spbu.ru
     project №1 "hello world"
 */
-
+#include<string>
 #include <iostream>
-#include <string>
 
-using namespace std;
-
-extern string hi;
+extern std::string hi;
 
 void hello() {
     hi = "Hello, world!";
-    cout << hi;
+    std::cout << hi;
 }
