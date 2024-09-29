@@ -3,14 +3,15 @@
     project №1 "hello world"
 */
 
-#include <iostream>
+#include <iostream>    // Подключение библиотек перенести в заголовочный файл и подключить его
 #include <string>
 
-using namespace std;
+using namespace std;    // Лучше не использовать, чтобы не засорять пространство имен. Перепиши через std::
 
-extern string hi;
+extern string hi;    // Глобальные переменные не нужны в этом задании
+                     // И в принципе их лучше не использовать
 
-void hello() {
+void hello() {    // лучше сделать так, чтобы функция принимала на вход строку и выводила на печать приветствие 
     hi = "Hello, world!";
     cout << hi;
 }
