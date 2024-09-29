@@ -3,20 +3,21 @@
     project №1 "Hello world"
 */
 
-#include <iostream>
+#include <iostream>    // Перенести include'ы в заголовочный файл
 #include <string>
 #include "headers.h"
 
-using namespace std;
+using namespace std;    // Убираем
 
-string hi;
+string hi;    // Глобальные переменные не нужны
 
 int main() {
-    hello();
-    cout<<endl;
+    hello();    // Переписать через функцию приветствия, которая принимает на вход строку, 
+                // которую ввели с клавиатуры в процессе работы функции main
+    cout<<endl; 
     string cut = hi.substr(0, 7);
     string name;
-    while (name != "stop") {
+    while (name != "stop") {    // Сделать цикл бесконечным и в нем условие на выход из цикла
       cin>>name;
       cout << cut << name << "!" << endl;
     }
