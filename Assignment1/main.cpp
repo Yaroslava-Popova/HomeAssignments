@@ -3,8 +3,7 @@
     project №1 "Hello world"
 */
 #include <iostream>
-#include <string>
-#include "headers.h"
+#include "hello.h"
 
 std::string hi;
 
