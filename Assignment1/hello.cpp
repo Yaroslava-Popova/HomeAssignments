@@ -1,8 +1,8 @@
-/*  Popova Yaroslava
-    st132757@student.spbu.ru
+/*    st132757@student.spbu.ru
     project №1 "hello world"
 */
-#include<string>
+
+#include <string>
 #include <iostream>
 
 extern std::string hi;
