@@ -2,12 +2,8 @@
     project №1 "hello world"
 */
 
-#include <string>
-#include <iostream>
+#include "hello.h"
 
-extern std::string hi;
-
-void hello() {
-    hi = "Hello, world!";
-    std::cout << hi;
+void hello(std::string name) {
+    std::cout << "Hello, " << name << "!" << std::endl;
 }
