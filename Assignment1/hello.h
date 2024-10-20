@@ -8,6 +8,6 @@
 #include <string>
 #include <iostream>
 
-void hello();
+void hello(std::string name);
 
 #endif
