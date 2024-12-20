@@ -4,6 +4,8 @@
 ## Contacts
 st132757@student.spbu.ru
 ## Description
-Home Assignment 2a - Opending a binary file, recognizing its size, allocating an array and reading the file into an array
+Home Assignment 2a - Opending a binary file and reverse bytes array. write filenames
 ## Build
+make
 ## Run
+./mf
