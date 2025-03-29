@@ -1,4 +1,4 @@
-/* Popova Yaroslava 
+ /* Popova Yaroslava 
    st132757@student.spbu.ru
 */
 
@@ -26,12 +26,12 @@ int main() {
 
      for (int i = 0; i < size; ++i)
      {
-       infile.read((char *)&buffer,sizeof(buffer));
+       infile.read((char*)&buffer,sizeof(buffer));
        arr[i] = buffer;
      }
 
-     int temporary;
-     for( int i; i < (size / 2); ++i)
+     char temporary;
+     for( int i = 0; i < (size / 2); ++i)
      {
        temporary = arr[i];
        arr[i] = arr[size - 1 - i];
