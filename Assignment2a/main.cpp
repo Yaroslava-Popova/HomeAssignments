@@ -1,48 +1,29 @@
- /* Popova Yaroslava 
-   st132757@student.spbu.ru
+/* Popova Yaroslava
+st132757@student.spbu.ru
 */
-
 
 #include <iostream>
 #include <fstream>
+#include <filesystem>
 
 int main() {
-     std::ifstream infile;
-     std::ofstream outfile;
-     std::string filename;
-     
-     std::cout<<"Write file name" << std::endl;
-     std::cin>>filename;
+    std::ifstream inputStream("inputfile.bin", std::ios::binary);
+    std::ofstream outputStream("outputfile.bin", std::ios::binary);
 
-     infile.open(filename, std::ios::binary|std::ios::in);
-     char buffer;
+    std::size_t sizeOfFile = std::filesystem::file_size("inputfile.bin");
 
-     infile.seekg (0, infile.end);
-     int size = infile.tellg();
-     infile.seekg (0, infile.beg);
+    auto* dataBuffer = new char[sizeOfFile];
+    inputStream.read(dataBuffer, sizeOfFile);
 
-     char* arr = new char [size];
-     outfile.open ("output_"+filename, std::ios::binary|std::ios::out);
+    for (std::size_t pos = 0; pos < sizeOfFile / 2; ++pos) {
+        std::swap(dataBuffer[pos], dataBuffer[sizeOfFile - pos - 1]);
+    }
 
-     for (int i = 0; i < size; ++i)
-     {
-       infile.read((char*)&buffer,sizeof(buffer));
-       arr[i] = buffer;
-     }
+    outputStream.write(dataBuffer, sizeOfFile);
 
-     char temporary;
-     for( int i = 0; i < (size / 2); ++i)
-     {
-       temporary = arr[i];
-       arr[i] = arr[size - 1 - i];
-       arr[size - 1 -i] = temporary; 
-     }
+    inputStream.close();
+    outputStream.close();
+    delete[] dataBuffer;
 
-     outfile.write(arr, size);
-     delete[] arr;
-
-     infile.close();
-     outfile.close();
-
-     return 0;  
+    return 0;
 }
