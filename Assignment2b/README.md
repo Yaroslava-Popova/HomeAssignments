@@ -1,11 +1,15 @@
-# Assignment 2b
 ## Author
-Попова Ярослава Олееговна, группа 24.Б82
+Popova Yaroslava B82-mm
+
 ## Contacts
+
 st132757@student.spbu.ru
+
 ## Description
-Home Assignment 2b - the string is read and the answer is output in reverse Polish notation
+Implementation of Кeverse Polish notation in C++
 ## Build
 make
+
 ## Run
-./mf
+To run the executable, use the following command:
+./main_program

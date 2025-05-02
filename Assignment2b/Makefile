@@ -1,10 +1,19 @@
-all: main.o operand.o operation.o
-	g++ main.o operand.o operation.o -o mf
-main.o: main.cpp
-	g++ -c main.cpp
-operand.o: operand.cpp
-	g++ -c operand.cpp
-operation.o: operation.cpp
-	g++ -c operation.cpp
+CXX = g++
+CXXFLAGS = -std=c++11 -Wall
+
+TARGET = main
+OBJS = main.o rpncalc.o
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $@ $(OBJS)
+
+main.o: main.cpp rpncalc.h
+	$(CXX) $(CXXFLAGS) -c main.cpp
+
+rpncalc.o: rpncalc.cpp rpncalc.h
+	$(CXX) $(CXXFLAGS) -c rpncalc.cpp
+
 clean:
-	rm -rf *.o prog
+	rm -f $(TARGET) $(OBJS)

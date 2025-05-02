@@ -5,7 +5,7 @@ Decepticon::Decepticon(std::string name, Direction* direction, int power_level, 
 
 Decepticon::~Decepticon() {}
 
-int Decepticon::get_power_level()
+int Decepticon::get_power_level() const
 {
     return _power_level;
 }
@@ -15,7 +15,7 @@ void Decepticon::set_power_level(int power_level)
     _power_level = power_level;
 }
 
-std::string Decepticon::get_weapon()
+std::string Decepticon::get_weapon() const
 {
     return _weapon;
 }
@@ -25,7 +25,7 @@ void Decepticon::set_weapon(std::string weapon)
     _weapon = weapon;
 }
 
-int Decepticon::get_loyalty()
+int Decepticon::get_loyalty() const
 {
     return _loyalty;
 }
@@ -36,3 +36,25 @@ void Decepticon::set_loyalty(int loyalty)
 }
 
 void Decepticon::attack() {}
+
+// Overloaded << operator
+std::ostream& operator<<(std::ostream& os, const Decepticon& decepticon) {
+    os << "Decepticon: " << decepticon.get_name()
+        << ", Fuel: " << decepticon.get_fuel()
+        << ", Power Level: " << decepticon.get_power_level()
+        << ", Weapon: " << decepticon.get_weapon();
+    return os;
+}
+
+// Overloaded comparison operators based on power_level
+bool Decepticon::operator<(const Decepticon& other) const {
+    return this->_power_level < other._power_level;
+}
+
+bool Decepticon::operator>(const Decepticon& other) const {
+    return this->_power_level > other._power_level;
+}
+
+bool Decepticon::operator==(const Decepticon& other) const {
+    return this->_power_level == other._power_level;
+}

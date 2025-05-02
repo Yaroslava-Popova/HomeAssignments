@@ -5,7 +5,7 @@ Autobot::Autobot(std::string name, Direction* direction, int power_level, std::s
 
 Autobot::~Autobot() {}
 
-int Autobot::get_power_level()
+int Autobot::get_power_level() const
 {
     return _power_level;
 }
@@ -15,7 +15,7 @@ void Autobot::set_power_level(int power_level)
     _power_level = power_level;
 }
 
-std::string Autobot::get_weapon()
+std::string Autobot::get_weapon() const
 {
     return _weapon;
 }
@@ -25,7 +25,7 @@ void Autobot::set_weapon(std::string weapon)
     _weapon = weapon;
 }
 
-int Autobot::get_courage()
+int Autobot::get_courage() const
 {
     return _courage;
 }
@@ -36,3 +36,25 @@ void Autobot::set_courage(int courage)
 }
 
 void Autobot::defend() {}
+
+// Overloaded << operator
+std::ostream& operator<<(std::ostream& os, const Autobot& autobot) {
+    os << "Autobot: " << autobot.get_name()
+        << ", Fuel: " << autobot.get_fuel()
+        << ", Power Level: " << autobot.get_power_level()
+        << ", Weapon: " << autobot.get_weapon();
+    return os;
+}
+
+// Overloaded comparison operators based on power_level
+bool Autobot::operator<(const Autobot& other) const {
+    return this->_power_level < other._power_level;
+}
+
+bool Autobot::operator>(const Autobot& other) const {
+    return this->_power_level > other._power_level;
+}
+
+bool Autobot::operator==(const Autobot& other) const {
+    return this->_power_level == other._power_level;
+}

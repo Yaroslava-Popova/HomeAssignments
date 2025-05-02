@@ -21,12 +21,15 @@ int main()
     optimus.defend();
 
     Decepticon megatron("Megatron", &south, 9500, "Fusion Cannon", laserBlaster);
-    std::cout << megatron << std::endl;
     megatron.attack();
 
     Item ancientScrolls("Ancient Scrolls");
     Neutral alphaTrion("Alpha Trion", &east, "Sage", ancientScrolls);
     alphaTrion.negotiate();
+
+    std::cout << optimus << std::endl;
+    std::cout << megatron << std::endl;
+    std::cout << alphaTrion << std::endl;
 
     return 0;
 }

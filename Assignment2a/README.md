@@ -8,4 +8,4 @@ Home Assignment 2a - Opending a binary file and reverse bytes array. write filen
 ## Build
 make
 ## Run
-./mf
+./main_program
